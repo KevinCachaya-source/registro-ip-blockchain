@@ -1,0 +1,83 @@
+:root {
+  --fondo: #e4e4e6;       /* gris claro de la presentación */
+  --papel: #f3f3f4;
+  --tinta: #1b1b1f;
+  --pizarra: #7e838c;     /* gris medio de la presentación */
+  --rojo: #d7141a;        /* rojo Universidad Libre */
+  --verde: #1f7a4d;
+  --display: "Archivo", "Arial Black", Arial, sans-serif;
+  --texto: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fondo); color: var(--tinta); font: 16px/1.55 var(--texto); }
+.pagina { max-width: 1080px; margin: 0 auto; padding: 32px 24px 48px; }
+
+h1 {
+  font: 900 clamp(26px, 4vw, 40px)/1.05 var(--display);
+  font-stretch: 125%;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+  max-width: 16ch;
+}
+h2 { font: 800 18px/1.2 var(--display); font-stretch: 125%; margin: 0 0 12px; }
+
+.cabecera { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap;
+  border-bottom: 8px solid var(--rojo); padding-bottom: 20px; }
+.tenue { color: var(--pizarra); }
+.pequeno { font-size: 13px; }
+
+button {
+  font: 600 15px var(--texto); cursor: pointer; border: 2px solid var(--tinta);
+  background: var(--tinta); color: #fff; padding: 10px 18px; border-radius: 999px;
+}
+button:hover:not(:disabled) { background: var(--rojo); border-color: var(--rojo); }
+button:disabled { opacity: .5; cursor: not-allowed; }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--rojo); outline-offset: 3px; }
+button.secundario { background: transparent; color: var(--tinta); }
+button.secundario:hover:not(:disabled) { color: #fff; }
+button.principal { width: 100%; padding: 16px; font-size: 17px; background: var(--rojo); border-color: var(--rojo); margin-top: 8px; }
+button.principal:hover:not(:disabled) { background: var(--tinta); border-color: var(--tinta); }
+
+.wallet { font: 500 14px var(--mono); background: var(--papel); padding: 10px 16px; border-radius: 999px; border: 2px solid var(--verde); }
+
+.pestanas { display: flex; gap: 4px; margin: 28px 0 24px; }
+.pestanas button { background: transparent; color: var(--pizarra); border: none; border-radius: 0;
+  border-bottom: 3px solid transparent; padding: 8px 4px; margin-right: 20px; }
+.pestanas button[aria-selected="true"] { color: var(--tinta); border-bottom-color: var(--tinta); }
+.pestanas button:hover:not(:disabled) { background: transparent; color: var(--rojo); }
+
+.contenido { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: start; }
+@media (max-width: 800px) { .contenido { grid-template-columns: 1fr; } }
+
+.zona { border: 2px dashed var(--pizarra); border-radius: 16px; padding: 28px; text-align: center; background: var(--papel); }
+.zona.encima { border-color: var(--rojo); background: #fff; }
+.zona p { margin: 0 0 14px; overflow-wrap: anywhere; }
+.zona p:last-child { margin: 14px 0 0; }
+
+.bloque-huella { margin: 28px 0 16px; }
+/* La huella es el elemento protagonista de la interfaz */
+.huella { font: 500 clamp(17px, 2.6vw, 26px)/1.35 var(--mono); letter-spacing: .08em; background: var(--tinta);
+  color: #fff; padding: 20px 24px; border-radius: 12px; border-left: 10px solid var(--rojo); }
+.huella span { display: block; }
+
+.aviso { padding: 12px 16px; border-radius: 10px; background: var(--papel); border-left: 5px solid var(--pizarra); }
+.aviso.ok { border-color: var(--verde); }
+.aviso.error { border-color: var(--rojo); }
+.aviso code { font-family: var(--mono); font-size: 14px; }
+
+.resultado { background: var(--papel); border-radius: 16px; padding: 24px; border-top: 8px solid var(--verde); }
+.resultado.nulo { border-top-color: var(--pizarra); }
+dl { margin: 0 0 20px; }
+dt { font-size: 13px; color: var(--pizarra); margin-top: 12px; }
+dd { margin: 2px 0 0; font: 14px var(--mono); overflow-wrap: anywhere; }
+a { color: var(--rojo); }
+
+.pasos { margin: 0; padding-left: 22px; }
+.pasos li { margin-bottom: 14px; padding-left: 6px; }
+.pasos li::marker { font: 800 18px var(--display); color: var(--rojo); }
+
+.pie { margin-top: 56px; border-top: 1px solid #c9c9cd; padding-top: 16px; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
